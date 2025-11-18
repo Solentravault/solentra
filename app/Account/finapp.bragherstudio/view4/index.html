@@ -1,0 +1,641 @@
+
+
+<!doctype html>
+<html lang="en">
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <title>UNIFIEDSAVEBank </title>
+    <meta name="description" content="UNIFIEDSAVEBank  ">
+    <meta name="keywords" content=" Trusted Bank for all Banking Transactions" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icon/192x192.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="manifest" href="__manifest.json">
+</head>
+
+<body>
+
+    <!-- loader -->
+    <!--<div id="loader">-->
+    <!--    <img src="assets/img/loading-icon.png" alt="icon" class="loading-icon">-->
+    <!--</div>-->
+    <!-- * loader -->
+
+    <!-- App Header -->
+    <div class="appHeader bg-primary text-light">
+        <div class="left">
+            <a href="#" class="headerButton" data-bs-toggle="modal" data-bs-target="#sidebarPanel">
+                <ion-icon name="menu-outline"></ion-icon>
+            </a>
+        </div>
+         <img src="assets/img/logo.png" alt="logo" class="logo"  style=" width: 180px; "  style=" height: 3180px; ">
+        <div class="pageTitle">
+            <!--<img src="assets/img/logo.png" alt="logo" class="logo"  style=" width: 180px; "  style=" height: 3180px; ">-->
+        </div>
+        <div class="right">
+            <!-- <a href="app-notifications.php" class="headerButton">
+                <ion-icon class="icon" name="notifications-outline"></ion-icon>
+                <span class="badge badge-danger">4</span>
+            </a>
+            <a href="app-settings.php" class="headerButton">
+                <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="imaged w32">
+                <span class="badge badge-danger">6</span>
+            </a> -->
+        </div>
+    </div>
+    <!-- * App Header -->
+
+
+    <!-- App Capsule -->
+    <div id="appCapsule">
+<div id="google_translate_element"></div>
+        <!-- Wallet Card -->
+        <div class="section wallet-card-section pt-1">
+            <div class="wallet-card">
+                <!-- Balance -->
+                <div class="balance">
+                    <div class="left">
+                            <strong><h2> Welcome<span style="color:#1b52d2;"> Thomas,
+                       
+                        Michael</span></h2></strong>
+                            <span class="title">Total Balance</span>
+                        <h1 class="total">USD 0.00</h1>
+                    </div>
+                    <div class="right">
+                        <a href="#" class="button" data-bs-toggle="modal" data-bs-target="#depositActionSheet">
+                            <ion-icon name="add-outline"></ion-icon>
+                        </a>
+                    </div>
+                </div>
+                <!-- * Balance -->
+                <!-- Wallet Footer -->
+                <div class="wallet-footer">
+                    <div class="item">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#withdrawActionSheet">
+                            <div class="icon-wrapper bg-danger">
+                                <ion-icon name="arrow-down-outline"></ion-icon>
+                            </div>
+                            <strong>Bank Withdraw </strong>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#sendActionSheet">
+                            <div class="icon-wrapper">
+                                <ion-icon name="arrow-forward-outline"></ion-icon>
+                            </div>
+                            <strong>Bitcoin Withdraw</strong>
+                        </a>
+                    </div>
+                    
+                    
+                        <div id="google_translate_element"></div>
+                    
+                     <div class="item">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#paypal">
+                            <div class="icon-wrapper bg-success">
+                                <ion-icon name="card-outline"></ion-icon>
+                            </div>
+                            <strong>Paypal Withdraw</strong>
+                        </a>
+                    </div> 
+                     <div class="item">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exchangeActionSheet">
+                            <div class="icon-wrapper bg-warning">
+                                <ion-icon name="swap-vertical"></ion-icon>
+                            </div>
+                            <strong>Skrill Withdraw</strong>
+                        </a>
+                    </div> 
+
+                </div>
+                <!-- * Wallet Footer -->
+            </div>
+        </div> 
+        <!-- Wallet Card -->
+        
+        <!-- Paypal Action Sheet -->
+<div class="modal fade action-sheet" id="paypal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">To Paypal Account</h5>
+            </div>
+            <div class="modal-body">
+                <div class="action-sheet-content">
+                    <form method="POST" action="process_withdrawal.php">
+                        <input type="hidden" name="form_type" value="paypal_withdraw">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="email">PayPal Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="PayPal Email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <label class="label" for="amount">Enter Amount</label>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" id="amount" placeholder="Enter an amount" name="amount" required>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <button type="submit" class="btn btn-primary btn-block btn-lg" name="submit">Withdraw</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- * Withdraw Action Sheet -->
+
+
+       
+
+
+        
+        <!-- Deposit Action Sheet -->
+        <div class="modal fade action-sheet" id="depositActionSheet" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Balance</h5>
+                         <h4 class="modal-title">Wire Bank Transfer</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="action-sheet-content">
+                            <form method="POST" action="#">
+                                
+                                <div class="form-group basic">
+                                    <label class="label"> Account Name</label>
+                                   <h2> <span style="color:#1b52d2;"> Thomas,
+                        Bobby                        Michael</span></h2>
+                                   
+                                </div>
+ 
+                              
+                            <div class="form-group basic">
+                                    <label class="label"> Account Number</label>
+                                    <div class="input-group mb-2">
+                                         <h2> <strong>869014573</strong></h2>
+                                        
+                                     
+                                            
+                                    </div>
+                                    <h5>Bank Name</h5>
+                                        <h4>UNIFIEDSAVEBank </h4><br>
+                                      <label class="label">Transfer Type</label> (Account Deposit)<br><br>
+                                           <label class="label">Routin Number(ABA)</label> 0321232
+                                </div>
+                                
+                                  
+
+                                <div class="form-group basic">
+                                    <label class="label">Enter Amount</label>
+                                    <div class="input-group mb-2">
+                                        <span class="input-group-text" id="basic-addona1">USD</span>
+                                       <input type="text" class="form-control" placeholder="Enter an amount" name="amount"
+                                            required>
+                                    </div>
+                                </div>
+
+                                                                     <div class="form-group basic">
+                                    <div class="input-group mb-2">
+                                        
+                                        <input type="hidden" name="transaction_id" value="N6Xp2DV">
+                                            
+                                    </div>
+                                </div>
+
+                                <div class="form-group basic">
+                                    <button type="submit" class="btn btn-primary btn-block btn-lg" name="enter"
+                                        data-bs-dismiss="modal">Deposit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- * Deposit Action Sheet -->
+
+        <!-- Skrill Action Sheet -->
+<div class="modal fade action-sheet" id="exchangeActionSheet" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">To Skrill Account</h5>
+            </div>
+            <div class="modal-body">
+                <div class="action-sheet-content">
+                    <form method="POST" action="process_withdrawal.php">
+                        <input type="hidden" name="form_type" value="skrill_withdraw">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="email">Skrill Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Skrill Email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <label class="label" for="amount">Enter Amount</label>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" id="amount" placeholder="Enter an amount" name="amount" required>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <button type="submit" class="btn btn-primary btn-block btn-lg" name="submit">Withdraw</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- * Withdraw Action Sheet -->
+
+
+        <!-- * Withdraw Action Sheet -->
+
+
+       <!-- Withdraw Action Sheet -->
+<div class="modal fade action-sheet" id="withdrawActionSheet" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Withdraw Money</h5>
+            </div>
+            <div class="modal-body">
+                <div class="action-sheet-content">
+                    <form method="POST" action="process_withdrawal.php">
+                        <input type="hidden" name="form_type" value="bank_withdraw">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="bname">Bank Name</label>
+                                <input type="text" class="form-control" id="bname" placeholder="Enter Bank" name="bname" required>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="name">Account Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter Account Name" name="name" required>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="acct">Account Number</label>
+                                <input type="text" class="form-control" id="acct" placeholder="Enter Account Number" name="acct" required>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <label class="label" for="amount">Enter Amount</label>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" id="amount" placeholder="Enter an amount" name="amount" required>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <button type="submit" class="btn btn-primary btn-block btn-lg" name="submit">Withdraw</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- * Withdraw Action Sheet -->
+
+
+        <!-- * Withdraw Action Sheet -->
+
+        <!-- Send Action Sheet -->
+<div class="modal fade action-sheet" id="sendActionSheet" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Withdraw Bitcoin</h5>
+            </div>
+            <div class="modal-body">
+                <div class="action-sheet-content">
+                    <form method="POST" action="process_withdrawal.php">
+                        <input type="hidden" name="form_type" value="bitcoin_withdraw">
+                        <div class="form-group basic">
+                            <div class="input-wrapper">
+                                <label class="label" for="wallet_id">Bitcoin Wallet ID</label>
+                                <input type="text" class="form-control" id="wallet_id" placeholder="Wallet ID" name="wallet_id" required>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <label class="label" for="amount">Enter Amount</label>
+                            <div class="input-group mb-2">
+                                <span class="input-group-text">$</span>
+                                <input type="text" class="form-control" id="amount" placeholder="Enter an amount" name="amount" required>
+                            </div>
+                        </div>
+                        <div class="form-group basic">
+                            <button type="submit" class="btn btn-primary btn-block btn-lg" name="submit">Withdraw</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- * Send Action Sheet -->
+
+
+        <!-- * Send Action Sheet -->
+
+        
+
+        <!-- Stats -->
+        <div class="section">
+            <div class="row mt-2">
+                <div class="col-6">
+                    <div class="stat-box">
+                        <div class="title">Current Balance</div>
+                        <div class="value text-success">USD 0.00</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="stat-box">
+                        <div class="title">Ledger Balance</div>
+                        <div class="value text-danger">USD 0.00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-6">
+                    <div class="stat-box">
+                        <div class="title">Available Balance</div>
+                        <div class="value">USD 0.00</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="stat-box">
+                        <div class="title">Refundable Balance</div>
+                        <div class="value">USD 0.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- * Stats -->
+
+
+
+
+<h2 style="text-align:center; margin-top:20px;">Transaction Records</h2>
+<table style="width:100%; border-collapse:collapse; margin:20px auto; box-shadow:0 0 10px rgba(0, 0, 0, 0.1);">
+    <thead>
+        <tr style="background-color:#f2f2f2;">
+            <th style="padding:10px; border:1px solid #ddd;">Amount</th>
+            <th style="padding:10px; border:1px solid #ddd;">Status</th>
+            <th style="padding:10px; border:1px solid #ddd;">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+            </tbody>
+</table>
+
+
+
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        
+     
+        
+        <!-- * Transactions -->
+    </div>
+    <!-- * App Capsule -->
+
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '16ce68ffa4645fc80e05234c4a0fd842a9edb635';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+
+<!-- /GetButton.io widget -->
+    <!-- App Bottom Menu -->
+    <div class="appBottomMenu">
+        <a href="index.php" class="item ">
+            <div class="col">
+                <ion-icon name="pie-chart-outline"></ion-icon>
+                <strong>Overview</strong>
+            </div>
+        </a>
+        <a href="transactions.php" class="item">
+            <div class="col">
+                <ion-icon name="document-text-outline"></ion-icon>
+                <strong>Transactions</strong>
+            </div>
+        </a>
+
+        <a href="app-cards.php" class="item">
+            <div class="col">
+                <ion-icon name="card-outline"></ion-icon>
+                <strong>My Cards</strong>
+            </div>
+        </a>
+
+        
+        
+        
+        <a href="settings.php" class="item">
+            <div class="col">
+                <ion-icon name="settings-outline"></ion-icon>
+                <strong>Settings</strong>
+            </div>
+        </a>
+    </div>
+    <!-- * App Bottom Menu -->
+    
+    
+    
+     
+
+
+
+
+    <!-- App Sidebar -->
+    <div class="modal fade panelbox panelbox-left" id="sidebarPanel" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <!-- profile box -->
+                    <div class="profileBox pt-2 pb-2">
+                        <!-- <div class="image-wrapper">
+                            <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="imaged  w36">
+                        </div> -->
+                        <div class="in">
+                            
+                                 
+                       
+                            
+                            
+                            <strong><h2> <span style="color:#1b52d2;">Thomas,
+                        Bobby                        Michael</span></h2></strong>
+                            
+                            <strong><span style="color:green;"> Account Number:</span> <h2>869014573</strong></h2>
+                            
+                            <strong>Checking Account</strong>
+                            
+                            <div class="text-muted"><span style="color:green;">amydavid242@gmail.com</span></div>
+                        </div>
+                        <a href="#" class="btn btn-link btn-icon sidebar-close" data-bs-dismiss="modal">
+                            <ion-icon name="close-outline"></ion-icon>
+                        </a>
+                    </div>
+                    <!-- * profile box -->
+                    <!-- balance -->
+                    <div class="sidebar-balance">
+                        <div class="listview-title">Balance</div>
+                        <div class="in">
+                            <h1 class="amount">USD 0.00</h1>
+                        </div>
+                    </div>
+                    <!-- * balance -->
+
+                    <!-- action group -->
+                    <div class="action-group">
+                        <a href="index.php" class="action-button">
+                            <div class="in">
+                                <div class="iconbox">
+                                    <ion-icon name="add-outline"></ion-icon>
+                                </div>
+                                Deposit
+                            </div>
+                        </a>
+                        <a href="index.php" class="action-button">
+                            <div class="in">
+                                <div class="iconbox">
+                                    <ion-icon name="arrow-down-outline"></ion-icon>
+                                </div>
+                                Withdraw
+                            </div>
+                        </a>
+                        
+                        
+                    </div>
+                    <!-- * action group -->
+
+                    <!-- menu -->
+                    <div class="listview-title mt-1">Menu</div>
+                    <ul class="listview flush transparent no-line image-listview">
+                        <li>
+                            <a href="index.php" class="item">
+                                <div class="icon-box bg-primary">
+                                    <ion-icon name="pie-chart-outline"></ion-icon>
+                                </div>
+                                <div class="in">
+                                    Overview
+                                    <span class="badge badge-primary"></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="transactions.php" class="item">
+                                <div class="icon-box bg-primary">
+                                    <ion-icon name="document-text-outline"></ion-icon>
+                                </div>
+                                <div class="in">
+                                    transactions
+                                </div>
+                            </a>
+                        </li>
+
+                        
+                        
+                    </ul>
+                    <!-- * menu -->
+
+                    <!-- others -->
+                    <div class="listview-title mt-1">Others</div>
+                    <ul class="listview flush transparent no-line image-listview">
+                        <li>
+                            <a href="settings.php" class="item">
+                                <div class="icon-box bg-primary">
+                                    <ion-icon name="settings-outline"></ion-icon>
+                                </div>
+                                <div class="in">
+                                    Settings
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="logout.php" class="item">
+                                <div class="icon-box bg-primary">
+                                    <ion-icon name="log-out-outline"></ion-icon>
+                                </div>
+                                <div class="in">
+                                    Log out
+                                </div>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                    <!-- * others -->
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- * App Sidebar -->
+
+
+
+
+
+
+
+    
+
+     <!-- ========= JS Files =========  -->
+    <!-- Bootstrap -->
+    <script src="assets/js/lib/bootstrap.bundle.min.js"></script>
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- Splide -->
+    <script src="assets/js/plugins/splide/splide.min.js"></script>
+    <!-- Base Js File -->
+    <script src="assets/js/base.js"></script>
+
+    <script>
+        // Add to Home with 2 seconds delay.
+        AddtoHome("2000", "once");
+    </script>
+    
+    
+    
+
+
+</body>
+
+
+
+
+</html>

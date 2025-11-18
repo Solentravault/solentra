@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solentratrustfin</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div>
+        <h1 id="userName" class="greeting"></h1>
+        <p id="currentDate" class="date">May 13, 2024</p>
+      </div>
+      <!-- <div class="weather" aria-label="Weather 72 degrees, clear">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/>
+          <line x1="12" y1="1" x2="12" y2="4" stroke="currentColor" stroke-width="2"/>
+          <line x1="12" y1="20" x2="12" y2="23" stroke="currentColor" stroke-width="2"/>
+          <line x1="1" y1="12" x2="4" y2="12" stroke="currentColor" stroke-width="2"/>
+          <line x1="20" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/>
+          <line x1="4.2" y1="4.2" x2="6.4" y2="6.4" stroke="currentColor" stroke-width="2"/>
+          <line x1="17.6" y1="17.6" x2="19.8" y2="19.8" stroke="currentColor" stroke-width="2"/>
+          <line x1="4.2" y1="19.8" x2="6.4" y2="17.6" stroke="currentColor" stroke-width="2"/>
+          <line x1="17.6" y1="6.4" x2="19.8" y2="4.2" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <span>72°</span>
+      </div> -->
+    </header>
+
+    <!-- BALANCE CARD -->
+    <section class="card balance-card" style="position: relative;">
+      <div>
+        <h2>Total Balance</h2>
+        <p id="bal" class="balance-amount"></p>
+      </div>
+      <div>
+        <p id="walletDetails" style="cursor:pointer; position: absolute; right: 10px; top: 0;">
+          Account wallet details
+        </p>
+      </div>
+    </section>
+
+    <div id="walletModal" style="
+      display:none; 
+      position:fixed; 
+      top:0; left:0; width:100%; height:100%; 
+      background:rgba(0,0,0,0.6); 
+      justify-content:center; align-items:center;
+    ">
+      <div style="
+        background:#fff; padding:20px; border-radius:10px; 
+        width:320px; text-align:center; position:relative;
+      ">
+        <!-- Close -->
+        <span id="closeModal" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:20px;">&times;</span>
+        
+        <h3>Wallet Address</h3>
+        <p id="walletAddress" style="word-wrap:break-word; font-weight:bold; color:#333;"></p>
+        <button id="copyBtn">📋 Copy Address</button>
+
+        <h3 style="margin-top:20px;">QR Code</h3>
+        <img id="qrImage" src="images/qrr.jpeg" alt="QR Code" style="width:150px; height:150px;"/>
+        <br/>
+        <a id="downloadBtn" href="images/4983400513341074798.jpg" download="wallet-qr.png">
+          <button>⬇️ Download QR</button>
+        </a>
+      </div>
+    </div>
+
+    <!-- QUICK ACTIONS -->
+    <section class="card actions-card">
+      <h2>Quick Actions</h2>
+      <div class="actions-grid">
+        <button class="action"><svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16"/></svg> Transfer Money</button>
+        <button class="action"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg> Pay Bills</button>
+        <button class="action"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M2 11h20M8 15h2m4 0h2"/></svg> Deposit Check</button>
+        <button class="action"><svg viewBox="0 0 24 24"><path d="M3 17h18M3 12h18M3 7h18"/></svg> Manage Investments</button>
+      </div>
+    </section>
+
+    <!-- ACCOUNTS + INSIGHTS -->
+    <section class="card finance-card">
+      <div class="card-grid">
+        <section class="panel">
+          <h2 class="panel-title">Accounts</h2>
+          <ul class="account-list" role="list">
+            <li class="row dis"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><rect x="3" y="9" width="18" height="2"/></svg></span><span class="label">Checking</span></li>
+            <li class="row dis"><span class="ico"><svg viewBox="0 0 24 24"><path d="M4 12a6.5 6.5 0 0 1 9.9-5.6 2 2 0 0 1 2.6 1.6l.2 1.3h1.1a1 1 0 0 1 1 1v2.2a1 1 0 0 1-1 1h-.8a5.5 5.5 0 0 1-5.4 4.5H10l-.6 1.5a1 1 0 0 1-.9.6H6.5a.75.75 0 0 1 0-1.5h1L8 18H7.5A3.5 3.5 0 0 1 4 14.5V12Z"/><circle cx="13" cy="9" r="0.8"/></svg></span><span class="label">Savings</span></li>
+            <li class="row dis"><span class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><rect x="2" y="8.5" width="20" height="2.5"/><rect x="6" y="14" width="6" height="2" rx="1"/></svg></span><span class="label">Credit Card</span></li>
+            <li class="row dis"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 15c.6.9 1.8 1.5 3 1.5 1.7 0 3-1 3-2.2S13.7 12 12 12c-1.7 0-3-1-3-2.2S10.3 7.5 12 7.5c1.2 0 2.4.6 3 1.5M12 6v12"/></svg></span><span class="label">Loan</span></li>
+            <li class="row dis"><span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="13" width="3" height="8" rx="1"/><rect x="9" y="9" width="3" height="12" rx="1"/><rect x="15" y="5" width="3" height="16" rx="1"/></svg></span><span class="label">Investments</span></li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel-title">Spending Insights</h2>
+          <div class="insights">
+            <figure class="donut">
+              <div class="donut-visual" id="pie"></div>
+              <figcaption class="legend">
+                <span><i class="dot dot-food"></i> Food</span>
+                <span><i class="dot dot-bills"></i> Bills</span>
+                <span><i class="dot dot-shop"></i> Shop</span>
+              </figcaption>
+            </figure>
+            <figure class="spark">
+              <figcaption class="spark-title">Monthly Balance</figcaption>
+              <svg id="lineChart" class="spark-svg" preserveAspectRatio="none"></svg>
+              <div class="axis"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span></div>
+            </figure>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    
+
+  </main>
+
+  <div id="toast-container"></div>
+
+
+  <!-- Smartsupp Live Chat script -->
+
+  <!-- 📱 WhatsApp Button -->
+  <a href="http://wa.me/14843526459" target="_blank" id="whatsappBtn"
+  style="position: fixed; bottom: 20px; right: 75px;
+          background: #25D366; color: white; border: none;
+          border-radius: 50%; width: 55px; height: 55px;
+          font-size: 26px; text-align: center; line-height: 55px;
+          cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+          text-decoration: none; z-index: 999;">
+  <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Font Awesome for WhatsApp icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<script type="text/javascript">
+var _smartsupp = _smartsupp || {};
+_smartsupp.key = '7ae7eb338327d35db73c88cce9f764ed33da82f4';
+window.smartsupp||(function(d) {
+  var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+  s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+  c.type='text/javascript';c.charset='utf-8';c.async=true;
+  c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+})(document);
+</script>
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
+
+  <script>
+    let acctNumber = "bc1q6m8785l8uwdxzjzrfyj0zs67d9rfcvt8jk3lwx";
+
+    const walletDetails = document.getElementById("walletDetails");
+    const walletModal = document.getElementById("walletModal");
+    const closeModal = document.getElementById("closeModal");
+    const walletAddress = document.getElementById("walletAddress");
+    const copyBtn = document.getElementById("copyBtn");
+
+    // Open modal
+    walletDetails.addEventListener("click", () => {
+      walletAddress.textContent = acctNumber;
+      walletModal.style.display = "flex";
+    });
+
+    // Close modal
+    closeModal.addEventListener("click", () => {
+      walletModal.style.display = "none";
+    });
+
+    // Copy address
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(acctNumber).then(() => {
+        alert("✅ Wallet address copied!");
+      });
+    });
+  </script>
+
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    // 🔹 Your Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyAsnOBlNVJ4owwI69DTdXQcGlfqkqzB-8I",
+      authDomain: "sole-eccd2.firebaseapp.com",
+      projectId: "sole-eccd2",
+      storageBucket: "sole-eccd2.firebasestorage.app",
+      messagingSenderId: "749161779588",
+      appId: "1:749161779588:web:133ca2c1711d8cf796cdd1",
+      measurementId: "G-ZSBKMQE3H9"
+    };
+
+    // Init Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    function getGreeting() {
+      const hour = new Date().getHours();
+      if (hour < 12) return "Good Morning";
+      if (hour < 18) return "Good Afternoon";
+      return "Good Evening";
+    }
+
+    // 🔹 Format date nicely
+    function formatDate() {
+      const options = { year: "numeric", month: "long", day: "numeric" };
+      return new Date().toLocaleDateString(undefined, options);
+    }
+
+    // 🔹 Inject values
+    document.getElementById("currentDate").textContent = formatDate();
+
+
+    // 🔹 Listen for logged-in user
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const email = user.email;
+        localStorage.setItem("myEmail", email);
+
+
+        // 🔹 Look up Firestore where email == logged-in user’s email
+        const q = query(collection(db, "users"), where("email", "==", email));
+        const querySnapshot = await getDocs(q);
+
+        if (!querySnapshot.empty) {
+          const data = querySnapshot.docs[0].data();
+
+          // Fill dashboard
+          document.getElementById("userName").textContent = getGreeting() + ', ' + data.fname.toUpperCase();
+          // document.getElementById("acctNumber").textContent = data.acctNumber;
+          document.getElementById("bal").textContent = '$' + data.amount ;
+          // document.getElementById("phone").textContent = data.phone;
+          // document.getElementById("accttype").textContent = data.accttype;
+          // document.getElementById("country").textContent = data.country;
+          // document.getElementById("currency").textContent = data.currency;
+        } else {
+          // alert("⚠️ User profile not found");
+          console.log("⚠️ User profile not found")
+        }
+      } else {
+        // Not logged in → redirect
+        window.location.href = "login.html";
+      }
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

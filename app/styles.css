@@ -1,0 +1,148 @@
+:root{
+  --bg:#f9fafb;
+  --card:#fff;
+  --ink:#111827;
+  --muted:#6b7280;
+  --border:#e7eaee;
+  --shadow:0 1px 2px rgba(0,0,0,.05), 0 6px 16px rgba(0,0,0,.06);
+
+  --food:#3b82f6;
+  --bills:#60a5fa;
+  --shop:#10b981;
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font:16px/1.45 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  color:var(--ink);
+  background:var(--bg);
+  overflow-x:hidden; /* prevent horizontal scroll */
+}
+
+.page{
+  padding:16px;
+  max-width:1200px;
+  margin:0 auto;
+  overflow-x:hidden;
+}
+
+/* HEADER */
+.header{
+  display:flex; 
+  justify-content:space-between; 
+  align-items:flex-start;
+  margin-bottom:16px;
+  flex-wrap:wrap; /* allow wrapping on small screens */
+  gap:8px;
+}
+.greeting{ margin:0; font-size:1.5rem; font-weight:700; }
+.date{ margin:.2rem 0 0; color:var(--muted); font-size:.9rem; }
+.weather{ display:flex; align-items:center; gap:4px; color:var(--muted); font-weight:600; flex-shrink:0; }
+.weather svg{ width:20px; height:20px; }
+
+/* CARD BASE */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px;
+  margin-bottom:16px;
+  box-shadow:var(--shadow);
+  max-width:100%;
+  overflow:hidden;
+}
+
+/* BALANCE CARD */
+.balance-card h2{ margin:0; font-size:1rem; color:var(--muted); }
+.balance-amount{ margin:.3rem 0 0; font-size:2rem; font-weight:700; }
+
+/* GRID for Accounts + Insights */
+.card-grid{ 
+  display:grid; 
+  gap:16px; 
+}
+@media(min-width:768px){ 
+  .card-grid{ grid-template-columns:1fr 1fr; align-items: stretch; } 
+}
+
+.panel-title{ font-size:1rem; font-weight:700; margin:0 0 10px; }
+.account-list{ list-style:none; margin:0; padding:0; max-width:100%; }
+.row{ display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); }
+.row:last-child{ border-bottom:none; }
+.ico{ width:28px; height:28px; flex-shrink:0; }
+.ico svg{ width:24px; height:24px; fill:none; stroke:#374151; stroke-width:1.6; stroke-linecap:round; }
+.label{ font-weight:600; flex:1; min-width:0; }
+
+/* Insights */
+.insights{ display:grid; gap:12px; }
+@media(min-width:500px){ .insights{ grid-template-columns:1fr 1fr; } }
+
+.donut{ display:flex; gap:14px; align-items:center; margin:0; flex-wrap:wrap; }
+.donut-visual{ width:112px; height:112px; border-radius:50%; background:conic-gradient(var(--food) 0 40%, var(--bills) 40% 70%, var(--shop) 70% 100%); box-shadow:inset 0 0 0 14px #fff; flex-shrink:0; }
+.legend{ display:grid; gap:8px; font-weight:600; min-width:0; flex:1; }
+.legend .dot{ width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:6px; }
+.dot-food{ background:var(--food); } .dot-bills{ background:var(--bills);} .dot-shop{ background:var(--shop); }
+.spark-title{ font-weight:700; margin-bottom:6px; }
+.spark-svg{ width:100%; height:96px; background:linear-gradient(180deg,#fff 0,#f3f7ff 100%); border:1px solid var(--border); border-radius:10px; display:block; }
+.axis{ display:flex; justify-content:space-between; font-size:.8rem; color:var(--muted); margin-top:6px; flex-wrap:wrap; }
+
+/* Quick Actions */
+.actions-card h2{ margin:0 0 12px; font-size:1rem; font-weight:700; }
+.actions-grid{ display:grid; gap:12px; grid-template-columns:1fr 1fr; }
+@media(min-width:768px){ .actions-grid{ grid-template-columns:repeat(4,1fr); } }
+.action{ 
+  display:flex; 
+  align-items:center; 
+  gap:8px; 
+  padding:12px; 
+  border:1px solid var(--border); 
+  border-radius:10px; 
+  background:#fff; 
+  font-weight:600; 
+  cursor:pointer; 
+  text-align:left; 
+  box-shadow:var(--shadow); 
+  max-width:100%; 
+  overflow:hidden;
+}
+.action svg{ width:22px; height:22px; fill:none; stroke:#374151; stroke-width:2; flex-shrink:0; }
+.action:hover{ background:#f9fafb; }
+
+
+/* Toast Notification */
+#toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+
+.toast {
+  background: #111827;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 0.3s forwards, fadeOut 0.5s ease 4.5s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
